@@ -3,40 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Científica</title>
+    <title>Lista de Tareas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" disabled>
-        <div class="buttons">
-            <button class="btn btn-operator" onclick="clearDisplay()">C</button>
-            <button class="btn" onclick="appendToDisplay('7')">7</button>
-            <button class="btn" onclick="appendToDisplay('8')">8</button>
-            <button class="btn" onclick="appendToDisplay('9')">9</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('/')">/</button>
-            <button class="btn" onclick="appendToDisplay('4')">4</button>
-            <button class="btn" onclick="appendToDisplay('5')">5</button>
-            <button class="btn" onclick="appendToDisplay('6')">6</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('*')">×</button>
-            <button class="btn" onclick="appendToDisplay('1')">1</button>
-            <button class="btn" onclick="appendToDisplay('2')">2</button>
-            <button class="btn" onclick="appendToDisplay('3')">3</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('-')">−</button>
-            <button class="btn" onclick="appendToDisplay('0')">0</button>
-            <button class="btn" onclick="appendToDisplay('.')">.</button>
-            <button class="btn btn-equal" onclick="calculate()">=</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('+')">+</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('Math.sin(')">sin</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('Math.cos(')">cos</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('Math.tan(')">tan</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('Math.log(')">log</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('Math.sqrt(')">√</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('Math.pow(')">xⁿ</button>
-            <button class="btn btn-operator" onclick="appendToDisplay('(')">(</button>
-            <button class="btn btn-operator" onclick="appendToDisplay(')')">)</button>
+    <div class="container">
+        <h1>Lista de Tareas</h1>
+        <div class="task-input">
+            <label for="taskInput">Nombre de la tarea</label>
+            <input type="text" id="taskInput" placeholder="Ej: Comprar leche">
+            <label for="taskDate">Fecha máxima para la tarea</label>
+            <input type="date" id="taskDate">
+            <button onclick="addTask()">Agregar tarea</button>
+            <button onclick="showTasksPopup()">Ver tareas agregadas</button>
+            <button onclick="showDeleteTasksPopup()">Eliminar tareas</button>
         </div>
     </div>
+    
+    <div id="taskPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('taskPopup')">&times;</span>
+            <p>Tarea guardada</p>
+            <button onclick="closePopup('taskPopup')">Aceptar</button>
+        </div>
+    </div>
+    
+    <div id="viewTasksPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('viewTasksPopup')">&times;</span>
+            <h2>Tareas Agregadas</h2>
+            <ul id="popupTaskList"></ul>
+        </div>
+    </div>
+    
+    <div id="deleteTasksPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('deleteTasksPopup')">&times;</span>
+            <h2>Eliminar Tareas</h2>
+            <ul id="deleteTaskList"></ul>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

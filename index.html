@@ -3,44 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tareas</title>
+    <title>Agencia de Marketing</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Lista de Tareas</h1>
-        <div class="task-input">
-            <label for="taskInput">Nombre de la tarea</label>
-            <input type="text" id="taskInput" placeholder="Ej: Comprar leche">
-            <label for="taskDate">Fecha máxima para la tarea</label>
-            <input type="date" id="taskDate">
-            <button onclick="addTask()">Agregar tarea</button>
-            <button onclick="showTasksPopup()">Ver tareas agregadas</button>
-            <button onclick="showDeleteTasksPopup()">Eliminar tareas</button>
+    <header>
+        <h1>Agencia de Marketing Digital</h1>
+        <p>Potenciamos tu negocio con estrategias digitales innovadoras.</p>
+        <button onclick="showPopup('contactPopup')">Contáctanos</button>
+    </header>
+    
+    <section class="about">
+        <h2>¿Quiénes somos?</h2>
+        <p>Somos una agencia de marketing digital especializada en SEO, publicidad en redes sociales y estrategias de crecimiento online.</p>
+        <img src="marketing.jpg" alt="Estrategia de marketing digital">
+    </section>
+    
+    <section class="services">
+        <h2>Nuestros Servicios</h2>
+        <div class="service-card" onclick="showPopup('servicePopup')">
+            <img src="seo.jpg" alt="Optimización SEO">
+            <h3>SEO & Optimización</h3>
+            <p>Mejoramos tu visibilidad en buscadores.</p>
+        </div>
+        <div class="service-card" onclick="showPopup('servicePopup')">
+            <img src="ads.jpg" alt="Publicidad Digital">
+            <h3>Publicidad Digital</h3>
+            <p>Campañas efectivas en redes sociales.</p>
+        </div>
+    </section>
+    
+    <section class="benefits">
+        <h2>¿Por qué elegirnos?</h2>
+        <ul>
+            <li><strong>Experiencia Comprobada:</strong> Más de 10 años impulsando negocios con estrategias digitales eficaces.</li>
+            <li><strong>Resultados Medibles:</strong> Implementamos herramientas analíticas avanzadas para evaluar el éxito de cada campaña.</li>
+            <li><strong>Soluciones Personalizadas:</strong> Cada negocio es único, por eso diseñamos estrategias a medida.</li>
+            <li><strong>Equipo de Expertos:</strong> Contamos con profesionales en SEO, publicidad digital y diseño web.</li>
+            <li><strong>Atención Personalizada:</strong> Nos enfocamos en la satisfacción de nuestros clientes, ofreciendo soporte constante.</li>
+        </ul>
+    </section>
+    
+    <section class="testimonials">
+        <h2>Testimonios de Clientes</h2>
+        <blockquote>
+            ⭐⭐⭐⭐⭐
+            <p>"Gracias a esta agencia, nuestra empresa ha logrado triplicar sus ventas en solo seis meses. ¡100% recomendados!"</p>
+            <cite>- Laura Gómez, CEO de TechStore</cite>
+        </blockquote>
+        <blockquote>
+            ⭐⭐⭐⭐⭐
+            <p>"El equipo es increíblemente profesional y siempre están atentos a nuestras necesidades. Su trabajo en redes sociales ha sido clave para nuestro crecimiento."</p>
+            <cite>- Andrés Rodríguez, Fundador de FitLife</cite>
+        </blockquote>
+    </section>
+    
+    <section class="trends">
+        <h2>Últimas Tendencias en Marketing Digital</h2>
+        <ul>
+            <li>📌 <strong>SEO Inteligente:</strong> Algoritmos de búsqueda más avanzados que priorizan contenido de calidad.</li>
+            <li>📌 <strong>Publicidad Programática:</strong> Automatización de anuncios para alcanzar la audiencia ideal.</li>
+            <li>📌 <strong>Marketing en Redes Sociales:</strong> Campañas creativas para conectar con clientes potenciales.</li>
+            <li>📌 <strong>Email Marketing Personalizado:</strong> Segmentación precisa para mensajes más efectivos.</li>
+        </ul>
+    </section>
+    
+    <div id="contactPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('contactPopup')">&times;</span>
+            <h2>Contacto</h2>
+            <p>Envíanos un mensaje y te responderemos pronto.</p>
+            <input type="text" placeholder="Tu nombre">
+            <input type="email" placeholder="Tu correo">
+            <button onclick="closePopup('contactPopup')">Enviar</button>
         </div>
     </div>
     
-    <div id="taskPopup" class="popup">
+    <div id="servicePopup" class="popup">
         <div class="popup-content">
-            <span class="close" onclick="closePopup('taskPopup')">&times;</span>
-            <p>Tarea guardada</p>
-            <button onclick="closePopup('taskPopup')">Aceptar</button>
-        </div>
-    </div>
-    
-    <div id="viewTasksPopup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup('viewTasksPopup')">&times;</span>
-            <h2>Tareas Agregadas</h2>
-            <ul id="popupTaskList"></ul>
-        </div>
-    </div>
-    
-    <div id="deleteTasksPopup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup('deleteTasksPopup')">&times;</span>
-            <h2>Eliminar Tareas</h2>
-            <ul id="deleteTaskList"></ul>
+            <span class="close" onclick="closePopup('servicePopup')">&times;</span>
+            <h2>Más Información</h2>
+            <p>Conoce más sobre nuestros servicios personalizados.</p>
+            <button onclick="closePopup('servicePopup')">Cerrar</button>
         </div>
     </div>
     
